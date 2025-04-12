@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- **Essential Feature: Static Files (url_for)** -->
+    <!-- Link to the CSS file using url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Dynamically set the title using Jinja2 variable -->
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>My Simple Flask Portfolio</h1>
+            <ul>
+                <!-- **Essential Feature: URL Building (url_for) in Templates** -->
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('visit_counter') }}">Visit Counter (Session Demo)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- **Essential Feature: Message Flashing (Display)** -->
+        <!-- Check for flashed messages and display them -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <p class="flash {{ category or 'message' }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- **Essential Feature: Template Inheritance (Blocks)** -->
+        <!-- Content block to be filled by child templates -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2023 Your Name</p>
+    </footer>
+</body>
+</html>

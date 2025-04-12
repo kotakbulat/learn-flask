@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>Project Details: {{ project.title }}</h2>
+    <p>Flask Feature Demonstrated Here: Dynamic Routes (URL variables) and retrieving specific data based on the URL.</p>
+    <p><strong>Description:</strong> {{ project.description }}</p>
+    <p><strong>Technology Used:</strong> {{ project.tech }}</p>
+    <p><a href="{{ url_for('projects') }}">« Back to Projects</a></p>
+{% endblock %}

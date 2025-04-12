@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>My Projects</h2>
+    <p>Flask Feature Demonstrated Here: Passing data from Python to the template and looping (Jinja2).</p>
+    <div class="projects-list">
+        {% if projects %}
+            {% for project in projects %}
+                <div class="project-item">
+                    <!-- Demonstrates dynamic route linking -->
+                    <h3><a href="{{ url_for('project_detail', project_id=project.id) }}">{{ project.title }}</a></h3>
+                    <p>{{ project.description }}</p>
+                    <small>Tech: {{ project.tech }}</small>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No projects to display yet.</p>
+        {% endif %}
+    </div>
+    <p>Click on a project title to see a dynamic route in action.</p>
+{% endblock %}

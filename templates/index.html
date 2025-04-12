@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>Welcome to My Portfolio!</h2>
+    <p>This is a simple portfolio website built with Flask.</p>
+    <p>Explore the site to see different Flask features in action:</p>
+    <ul>
+        <li>Check the navigation links (uses <code>url_for</code>).</li>
+        <li>Visit the <a href="{{ url_for('projects') }}">Projects</a> page to see data passed to a template.</li>
+        <li>Try the <a href="{{ url_for('contact') }}">Contact</a> form (demonstrates GET/POST, form handling, flashing, redirect).</li>
+        <li>Refresh the <a href="{{ url_for('visit_counter') }}">Visit Counter</a> page (uses sessions).</li>
+        <li>Try visiting a non-existent page like <code>/nonexistent</code> to see the custom 404 error page.</li>
+        <li>Look at <code>app.py</code> to see routing, request handling, configuration, etc.</li>
+        <li>Look at <code>base.html</code> for template inheritance and static file linking.</li>
+    </ul>
+{% endblock %}

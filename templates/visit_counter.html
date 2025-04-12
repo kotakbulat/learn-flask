@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>Session Visit Counter</h2>
+    <p>Flask Feature Demonstrated Here: Using the <code>session</code> object to store data across requests for a single user (browser session).</p>
+    <p>You have visited this page <strong>{{ count }}</strong> time(s) during this session.</p>
+    <p>Close your browser completely and reopen this page to reset the session counter.</p>
+    <p>(Note: The session data is stored in a browser cookie, signed by the app's SECRET_KEY.)</p>
+{% endblock %}
